@@ -21,6 +21,6 @@ echo > .nojekyll
 # git commit -m 'deploy'
 
 # if you are deploying to https://haktywista.github.io/literalnie-solver
-# git push -f git@github.com:haktywista/literalnie-solver.git master:gh-pages
+git push -f git@github.com:haktywista/literalnie-solver.git master:gh-pages
 
 cd -
