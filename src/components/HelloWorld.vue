@@ -147,6 +147,16 @@ const listLimit = (input: any[]) => {
         <th>5 litera</th>
         <th></th>
       </tr>
+      <tr>
+        <th><input style="width: 120px" v-model="included" /></th>
+        <th><input style="width: 120px" v-model="excluded" /></th>
+        <th><input style="width: 50px" v-model="included1" /></th>
+        <th><input style="width: 50px" v-model="included2" /></th>
+        <th><input style="width: 50px" v-model="included3" /></th>
+        <th><input style="width: 50px" v-model="included4" /></th>
+        <th><input style="width: 50px" v-model="included5" /></th>
+        <th><button @click="resetState">Reset</button></th>
+      </tr>
     </table>
   </div>
 
