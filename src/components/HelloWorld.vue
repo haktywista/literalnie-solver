@@ -3,9 +3,9 @@ import { computed, ref } from "vue";
 import data from "../pl_pl.json";
 import dataSimple from "../pl_pl_simple.json";
 
-const getBestChars = (input) => {
-  return input.reduce((total, word) => {
-    word.split("").forEach((char) => {
+const getBestChars = (input: any[]) => {
+  return input.reduce((total: { [x: string]: number }, word: string) => {
+    word.split("").forEach((char: string | number) => {
       if (total[char]) {
         total[char] += 1;
       } else {
@@ -16,7 +16,7 @@ const getBestChars = (input) => {
   }, {});
 };
 
-const unique = (str) => {
+const unique = (str: string | any[]) => {
   let result = "";
   for (var i = 0; i < str.length; i++) {
     if (result.indexOf(str[i]) < 0) {
@@ -26,9 +26,9 @@ const unique = (str) => {
   return result;
 };
 
-const getBestWords = (input) => {
+const getBestWords = (input: any[]) => {
   const chars = getBestChars(input);
-  return input.map((word) => {
+  return input.map((word: any) => {
     return [
       word,
       unique(word)
@@ -57,27 +57,37 @@ const resetState = () => {
   included4.value = "";
   included5.value = "";
 };
-const getData = (input) => {
+const getData = (input: string[]) => {
   let dataTmp = input;
 
   if (included1.value) {
-    dataTmp = dataTmp.filter((word) => word.split("")[0] === included1.value);
+    dataTmp = dataTmp.filter(
+      (word: string) => word.split("")[0] === included1.value
+    );
   }
   if (included2.value) {
-    dataTmp = dataTmp.filter((word) => word.split("")[1] === included2.value);
+    dataTmp = dataTmp.filter(
+      (word: string) => word.split("")[1] === included2.value
+    );
   }
   if (included3.value) {
-    dataTmp = dataTmp.filter((word) => word.split("")[2] === included3.value);
+    dataTmp = dataTmp.filter(
+      (word: string) => word.split("")[2] === included3.value
+    );
   }
   if (included4.value) {
-    dataTmp = dataTmp.filter((word) => word.split("")[3] === included4.value);
+    dataTmp = dataTmp.filter(
+      (word: string) => word.split("")[3] === included4.value
+    );
   }
   if (included5.value) {
-    dataTmp = dataTmp.filter((word) => word.split("")[4] === included5.value);
+    dataTmp = dataTmp.filter(
+      (word: string) => word.split("")[4] === included5.value
+    );
   }
 
   if (included.value.length > 0) {
-    dataTmp = dataTmp.filter((word) => {
+    dataTmp = dataTmp.filter((word: string | string[]) => {
       return (
         included.value
           .split("")
@@ -90,7 +100,7 @@ const getData = (input) => {
   }
 
   if (excluded.value.length > 0) {
-    dataTmp = dataTmp.filter((word) => {
+    dataTmp = dataTmp.filter((word: string | string[]) => {
       const tmp1 = excluded.value
         .split("")
         .map((checkedChar) => {
@@ -106,16 +116,16 @@ const getData = (input) => {
 
 const list = computed(() => {
   return getBestWords(getData(data)).sort(
-    (item1, item2) => item2[1] - item1[1]
+    (item1: number[], item2: number[]) => item2[1] - item1[1]
   );
 });
 const listSimple = computed(() => {
   return getBestWords(getData(dataSimple)).sort(
-    (item1, item2) => item2[1] - item1[1]
+    (item1: number[], item2: number[]) => item2[1] - item1[1]
   );
 });
 
-const listLimit = (input) => {
+const listLimit = (input: any[]) => {
   return input.splice(0, 100);
 };
 </script>
