@@ -15,12 +15,12 @@ echo > .nojekyll
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
-git init
-git checkout -B master
-git add -A
-git commit -m 'deploy'
+# git init
+# git checkout -B master
+# git add -A
+# git commit -m 'deploy'
 
 # if you are deploying to https://haktywista.github.io/literalnie-solver
-# git push -f git@github.com:haktywista/literalnie-solver.git main:gh-pages
+# git push -f git@github.com:haktywista/literalnie-solver.git master:gh-pages
 
 cd -
