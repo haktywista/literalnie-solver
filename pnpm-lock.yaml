@@ -17,9 +17,11 @@ specifiers:
   vue: ^3.2.38
   vue-pincode-input: ^0.4.0
   vue-tsc: ^1.0.8
+  vue3-otp-input: ^0.3.6
 
 dependencies:
   vue: 3.2.40
+  vue-pincode-input: 0.4.0
 
 devDependencies:
   '@rushstack/eslint-patch': 1.2.0
@@ -35,8 +37,8 @@ devDependencies:
   prettier: 2.7.1
   typescript: 4.7.4
   vite: 3.1.8
-  vue-pincode-input: 0.4.0
   vue-tsc: 1.0.8_typescript@4.7.4
+  vue3-otp-input: 0.3.6_vue@3.2.40
 
 packages:
 
@@ -957,7 +959,7 @@ packages:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
     deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
-    dev: true
+    dev: false
 
   /cross-spawn/6.0.5:
     resolution: {integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==}
@@ -2537,7 +2539,7 @@ packages:
     resolution: {integrity: sha512-A1DtG9J+o5AhdxRcgmuW8xxh7w5+GGVd6Di1J3n12xI99qSyKm9kBNJx4AzrNDgzr2TwUbleAdw7YTy3B68ohQ==}
     dependencies:
       core-js: 2.6.12
-    dev: true
+    dev: false
 
   /vue-template-compiler/2.7.13:
     resolution: {integrity: sha512-jYM6TClwDS9YqP48gYrtAtaOhRKkbYmbzE+Q51gX5YDr777n7tNI/IZk4QV4l/PjQPNh/FVa/E92sh/RqKMrog==}
@@ -2565,6 +2567,15 @@ packages:
       '@vue/runtime-dom': 3.2.40
       '@vue/server-renderer': 3.2.40_vue@3.2.40
       '@vue/shared': 3.2.40
+
+  /vue3-otp-input/0.3.6_vue@3.2.40:
+    resolution: {integrity: sha512-08A/33P3dvk8DBQ6ACJ6ajNCNdkJL2Di5CVVLxcYK7+izM4KFMeWsFnZsx2fD0VfLE7t6jpi+cNgNU83nP7/TQ==}
+    engines: {node: '>=14.0.0', npm: '>=7.0.0'}
+    peerDependencies:
+      vue: ^3.0.*
+    dependencies:
+      vue: 3.2.40
+    dev: true
 
   /which-boxed-primitive/1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
