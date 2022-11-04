@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 import { computed, ref } from "vue";
 import data from "../pl_pl.json";
 import dataSimple from "../pl_pl_simple.json";
@@ -21,6 +22,7 @@ const wrongPlace5 = computed(() => universalWrongPlace(4));
 
 const universalIncluded = (place: number) =>
   words.value
+    // @ts-ignore
     .flat()
     .filter(
       (letter: { status: string }, index: number) =>
@@ -31,6 +33,7 @@ const universalIncluded = (place: number) =>
 
 const universalWrongPlace = (place: number) =>
   words.value
+    // @ts-ignore
     .flat()
     .filter(
       (letter: { status: string }, index: number) =>
@@ -40,14 +43,20 @@ const universalWrongPlace = (place: number) =>
 
 const excluded = computed(() =>
   words.value
+    // @ts-ignore
     .flat()
     .filter((letter: { status: string }) => {
       return (
         letter.status === "inactive" &&
+        // @ts-ignore
         !wrongPlace1.value.includes(letter.letter) &&
+        // @ts-ignore
         !wrongPlace2.value.includes(letter.letter) &&
+        // @ts-ignore
         !wrongPlace3.value.includes(letter.letter) &&
+        // @ts-ignore
         !wrongPlace4.value.includes(letter.letter) &&
+        // @ts-ignore
         !wrongPlace5.value.includes(letter.letter)
       );
     })
@@ -214,18 +223,23 @@ const getStatus = (letter: string, index: number) => {
 
 const handleOnComplete = (value: string) => {
   words.value = [
+    // @ts-ignore
     ...(words.value || []),
+    // @ts-ignore
     value.split("").map((letter, index) => ({
       letter: letter,
       status: getStatus(letter, index),
     })),
   ];
+  // @ts-ignore
   otpInput.value.clearInput();
 };
 
 const clickItem = (index: number, index1: any) => {
+  // @ts-ignore
   words.value = words.value.map((word, indexA) => {
     if (index === indexA) {
+      // @ts-ignore
       return word.map(
         (letter: { letter: any; status: string }, indexB: any) => {
           if (index1 === indexB) {
