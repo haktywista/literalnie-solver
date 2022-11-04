@@ -3,26 +3,16 @@
 # abort on errors
 set -e
 
-npm install
-
 # build
-npm run build-only
+npm run build
 
 # navigate into the build output directory
 cd dist
 
-# place .nojekyll to bypass Jekyll processing
-echo > .nojekyll
-
-# if you are deploying to a custom domain
-# echo 'www.example.com' > CNAME
-
 git init
-git checkout -B master
 git add -A
 git commit -m 'deploy'
 
-# if you are deploying to https://haktywista.github.io/literalnie-solver
-git push -f git@github.com:haktywista/literalnie-solver.git master:gh-pages
+git push -f git@github.com:YOUR_USERNAME/REPO_NAME.git master:gh-pages
 
 cd -
